@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP1 - Université Ibn Zohr</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .contact {
+            font-weight: bold;
+        }
+        .univ-info {
+            margin-bottom: 10px;
+        }
+        .exercice {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .objectifs {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <p class="contact">+212 689-892481</p>
+        <p>March 22, 9:45 AM</p>
+        
+        <div class="univ-info">
+            <h1>Université Ibn Zohr</h1>
+            <p>Faculté des Sciences Appliquées Ait Méliod</p>
+            <p>année universitaire : 2024/2025</p>
+        </div>
+        
+        <p><strong>Pr. : A. Lahmabaji</strong></p>
+    </div>
+    
+    <h2>Travaux Pratiques 1 : Utilisation de NumPy pour l’analyse numérique</h2>
+    <p>("TC MiP : Génie des Technologies Industrielles Sₙ")</p>
+    
+    <h3>Objectifs :</h3>
+    <ol class="objectifs">
+        <li>Créer, afficher et manipuler des tableaux NumPy.</li>
+        <li>Utiliser des fonctions NumPy pour effectuer des opérations mathématiques avancées sur les tableaux.</li>
+        <li>Effectuer des opérations matricielles en utilisant NumPy.</li>
+        <li>Résoudre des systèmes d’équations linéaires en utilisant la méthode d’élimination de Gauss avec NumPy.</li>
+    </ol>
+    
+    <div class="exercice">
+        <h3>Exercice 1 : Création, affichage et manipulation de tableaux NumPy</h3>
+        <ol>
+            <li>Créer un tableau NumPy <strong>art1</strong> contenant les nombres de 0 à 9 et affichez-le.</li>
+            <li>Créer un tableau <strong>art2</strong> de forme (3, 3) rempli de zéros et affichez-le.</li>
+            <li>Créer un tableau <strong>art3</strong> de forme (2, 4) rempli de nombres aléatoires entre 0 et 10 et affichez-le.</li>
+            <li>Créer un tableau <strong>art4</strong> de forme (5), contenant des nombres espacés linéairement entre 0 et 100 (inclus) et affichez-le.</li>
+            <li>Afficher la forme (shape), le type de données (dtype) et la dimension (ndim) de art3.</li>
+        </ol>
+    </div>
+    
+    <div class="exercice">
+        <h3>Exercice 2 : Opérations mathématiques avancées</h3>
+        <ol>
+            <li>Calculer la somme de tous les éléments de art1.</li>
+            <li>Calculer la moyenne des éléments de art3.</li>
+            <li>Calculer le produit des éléments de art4.</li>
+            <li>Calculer la racine carrée de chaque élément de art5.</li>
+            <li>Calculer le logarithme naturel de chaque élément de art6.</li>
+        </ol>
+    </div>
+    
+    <div class="exercice">
+        <h3>Exercice 3 : Opérations matricielles</h3>
+        <ol>
+            <li>Créer deux matrices <strong>mat1</strong> et <strong>mat2</strong> de forme (2, 2) avec des valeurs de votre choix.</li>
+            <li>Calculer le produit matriciel de mat1 et mat2.</li>
+            <li>Calculer la transposée de mat1.</li>
+            <li>Calculer le déterminant de mat2.</li>
+            <li>Calculer l’inverse de mat2.</li>
+        </ol>
+    </div>
+    
+    <div class="exercice">
+        <h3>Exercice 4 : Résolution de systèmes d’équations linéaires par la méthode d’élimination de Gauss</h3>
+        <ol>
+            <li>Considérer le système d’équations linéaires suivant :<br>
+                \[
+                \begin{cases} 
+                2x + y - z = 5 \\ 
+                x + 3y + z = 7 \\ 
+                x - y + 2z = 3 
+                \end{cases}
+                \]
+            </li>
+            <li>Créer une matrice augmentée \(A_{aug}\) en combinant la matrice des coefficients et le vecteur des termes constants.</li>
+            <li>Appliquer la méthode d’élimination de Gauss pour transformer la matrice augmentée \(A_{aug}\) en une forme échelon. En pivot chaque ligne \(t\), assurer que les coefficients principal (pivot) est non nul.<br>
+                – Multipliez la ligne \(t\) par un facteur approprié pour que le pivot soit \(1\) (si nécessaire).<br>
+                – Soustrayez des multiples de la ligne \(t\) des lignes suivantes pour annuler les coefficients en dessous du pivot.</li>
+            <li>Résoudre le système en utilisant la substitution arrière, c.-à-d. Commencez par la dernière ligne et remplacez les valeurs dans les lignes précédentes.</li>
+            <li>Vérifier la solution en calculant \(Ax\) et en comparant avec \(b\).</li>
+        </ol>
+    </div>
+</body>
+</html>
