@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Méthodes Numériques</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .code {
+            background-color: #f8f9fa;
+            border-left: 3px solid #3498db;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Méthodes Numériques</h1>
+        
+        <h2>Exercice 1: La Méthode des Différences Divisées de Newton</h2>
+        <div class="code">
+            <pre><code>import numpy as np
+
+def differences_divisees(x, y):
+    # Initialisation du tableau de différences divisées
+    n = len(x)
+    table = [[0] * n for _ in range(n)]
+    
+    # Première colonne : valeurs y directes
+    for i in range(n):
+        table[i][0] = y[i]
+    
+    # Calcul des différences divisées
+    for j in range(1, n):  
+        for i in range(n - j):  
+            # Formule des différences divisées
+            table[i][j] = (table[i+1][j-1] - table[i][j-1]) / (x[i+j] - x[i])
+    
+    # Retourne la première ligne qui contient les coefficients
+    return table[0]
+
+def evaluer_polynome_direct(x_points, coeffs, x):
+    resultat = coeffs[0]
+    terme = coeffs[0]
+    
+    # Construction directe du polynôme
+    for i in range(1, len(coeffs)):
+        terme = 1
+        for j in range(i):
+            terme *= (x - x_points[j])
+        terme *= coeffs[i]
+        resultat += terme  # Accumulation dans le résultat
+    
+    return resultat
+
+# Exemple avec les points de l'exercice 1
+x = [0, 1, 2]
+y = [1, 2, 5]
+coeffs = differences_divisees(x, y)
+valeur_en_x_3 = evaluer_polynome_direct(x, coeffs, 3)
+print(f"Valeur en x=3 : {valeur_en_x_3}")</code></pre>
+        </div>
+        
+        <h2>Exercice 2: Analyse des méthodes numériques de Simpson et des trapèzes pour l'intégration</h2>
+        <div class="code">
+            <pre><code>import numpy as np
+
+def integration_trapeze(f, a, b, n):
+    h = (b - a) / n
+    x = np.linspace(a, b, n+1)
+    y = [f(xi) for xi in x]
+    
+    somme = (y[0] + y[-1]) / 2  # Première et dernière valeurs
+    somme += sum(y[1:-1])  # Valeurs intermédiaires
+    
+    return h * somme  # Formule des trapèzes
+
+def integration_simpson(f, a, b, n):
+    if n % 2 != 0:
+        raise ValueError("n doit être pair pour Simpson.")
+    
+    h = (b - a) / n
+    x = np.linspace(a, b, n+1)
+    y = [f(xi) for xi in x]
+    
+    somme = y[0] + y[-1]  # Extrémités
+    somme_y_pairs = 4 * sum(y[1:-1:2])  # y_i pour i pair (mais on commence à 1 ici)
+    somme_y_impairs = 2 * sum(y[2:-1:2])  # y_i pour i impair
+    
+    return h / 3 * (somme + somme_y_pairs + somme_y_impairs)  # Formule de Simpson
+
+# Exemple de fonction
+f = lambda x: x**2
+
+# Intégration avec n=10 intervalles
+n = 10
+trap = integration_trapeze(f, 0, 1, n)
+simp = integration_simpson(f, 0, 1, n)
+print(f"Trapèzes (n={n}): {trap}, Simpson (n={n}): {simp}")</code></pre>
+        </div>
+    </div>
+</body>
+</html>
